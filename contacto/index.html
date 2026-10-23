@@ -373,22 +373,94 @@ body, .site, .content-bg, body.content-style-unboxed .site { background:var(--at
   <div class="at-wrap at-contacto">
     <div class="at-rev">
       <h2 class="at-h2" style="font-size:clamp(32px,4vw,52px)">Escríbeme y te digo <em>cómo lo haría</em>.</h2>
-      <p class="at-lead">Escríbeme directamente y te contesto con una propuesta.</p>
+      <p class="at-lead">Rellena el formulario y te contesto con una propuesta. Te llegará un correo con el resumen de lo que me pides.</p>
       <div class="at-dato"><small>Correo</small><a class="at-correo" style="margin:0" href="mailto:contacto@atdesarrolloweb.es">contacto@atdesarrolloweb.es</a></div>
+      <div class="at-dato at-dato-wa" hidden><small>WhatsApp</small><a class="at-correo at-wa" style="margin:0" href="#"></a></div>
       <div class="at-dato"><small>Respuesta</small><span class="at-lead" style="color:var(--at-cream)">Normalmente, en menos de 24 horas.</span></div>
     </div>
     <div class="at-form-caja at-rev">
-  <div class="at-contacto-directo">
-    <p class="at-kicker" style="margin:0 0 14px">Escríbeme</p>
-    <p class="at-lead" style="margin:0 0 22px">Cuéntame en dos líneas qué negocio tienes y qué necesitas. Te respondo con una propuesta y un presupuesto sin compromiso.</p>
-    <a class="at-boton-contacto" href="mailto:contacto@atdesarrolloweb.es?subject=Quiero%20una%20web&body=Hola%2C%20Antonio.%20Tengo%20un%20negocio%20de%20...%20y%20me%20gustar%C3%ADa%20...">Enviar un correo</a>
-    <p class="at-lead" style="margin:18px 0 0;font-size:15px">O escribe directamente a <a href="mailto:contacto@atdesarrolloweb.es">contacto@atdesarrolloweb.es</a></p>
+  <form class="at-form" id="at-form" novalidate>
+    <div class="at-form-fila">
+      <label>Nombre<input name="nombre" type="text" autocomplete="name" required maxlength="80"></label>
+      <label>Correo<input name="email" type="email" autocomplete="email" required maxlength="120"></label>
+    </div>
+    <div class="at-form-fila">
+      <label><i class="at-form-et">Teléfono <span>(opcional)</span></i><input name="telefono" type="tel" autocomplete="tel" maxlength="30"></label>
+      <label><i class="at-form-et">Negocio <span>(opcional)</span></i><input name="negocio" type="text" autocomplete="organization" maxlength="120" placeholder="Ej.: peluquería en Granada"></label>
+    </div>
+    <label>¿Qué necesitas?
+      <select name="servicio" required>
+        <option value="">Elige una opción</option>
+        <option value="web-nueva">Una web nueva para mi negocio</option>
+        <option value="renovar">Renovar la web que ya tengo</option>
+        <option value="dominio-correo">Dominio y correo profesional</option>
+        <option value="google">Aparecer en Google (SEO local)</option>
+        <option value="mantenimiento">Mantenimiento y cambios</option>
+        <option value="otro">Otra cosa</option>
+      </select>
+    </label>
+    <label>Mensaje<textarea name="mensaje" rows="5" required maxlength="3000" placeholder="Cuéntame en dos líneas qué negocio tienes y qué te gustaría conseguir."></textarea></label>
+    <label class="at-form-trampa" aria-hidden="true">No rellenes este campo<input name="trampa" type="text" tabindex="-1" autocomplete="off"></label>
+    <label class="at-form-check"><input name="privacidad" type="checkbox" required> He leído y acepto la <a href="/politica-de-privacidad/">política de privacidad</a>.</label>
+    <p class="at-form-aviso" role="status" aria-live="polite"></p>
+    <button type="submit" class="at-btn at-btn--gold">Enviar mensaje <span class="at-arrow">→</span></button>
+  </form>
+  <div class="at-form-ok" hidden>
+    <span class="at-kicker">Mensaje enviado</span>
+    <h3 class="at-form-ok-titulo">Gracias, <em data-nombre></em>.</h3>
+    <p class="at-lead">Ya tengo tu solicitud sobre <strong data-servicio></strong>. Te he enviado un correo con el resumen y te contesto en menos de 24 horas.</p>
+    <p class="at-lead" style="font-size:15px">Si no lo ves, mira en la carpeta de spam o promociones.</p>
   </div>
   <style>
-    .at-contacto-directo{padding:36px;border:1px solid rgba(226,180,106,.35);border-radius:18px;background:rgba(255,255,255,.03)}
-    .at-boton-contacto{display:inline-block;padding:15px 30px;border-radius:999px;background:#E2B46A;color:#14161B!important;font-weight:600;text-decoration:none;transition:transform .2s}
-    .at-boton-contacto:hover{transform:translateY(-2px)}
+    .at-form{display:grid;gap:18px}
+    .at-form-fila{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .at-form label{display:grid;gap:8px;font-size:14px;color:var(--at-cream)}
+    .at-form-et{font-style:normal}.at-form label span{color:var(--at-mute)}
+    .at-form-caja .at-form input[type=text],.at-form-caja .at-form input[type=email],.at-form-caja .at-form input[type=tel],.at-form-caja .at-form select,.at-form-caja .at-form textarea{width:100%;box-sizing:border-box;font:inherit;font-size:15px;background:var(--at-ink)!important;border:1px solid rgba(241,236,227,.16)!important;color:var(--at-cream)!important;border-radius:12px!important;padding:14px 16px!important}
+    .at-form select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--at-gold) 50%),linear-gradient(135deg,var(--at-gold) 50%,transparent 50%)!important;background-position:calc(100% - 22px) 50%,calc(100% - 16px) 50%!important;background-size:6px 6px!important;background-repeat:no-repeat!important}
+    .at-form select:focus,.at-form-caja .at-form input:focus,.at-form-caja .at-form textarea:focus{outline:0;border-color:var(--at-gold)!important;box-shadow:0 0 0 3px rgba(214,167,86,.18)!important}
+    .at-form ::placeholder{color:#6f6b64}
+    .at-form-check{display:flex!important;grid-template-columns:none;align-items:flex-start;gap:10px!important;color:var(--at-mute)!important}
+    .at-form-check input{margin-top:3px;accent-color:var(--at-gold)}
+    .at-form-check a{color:var(--at-gold)}
+    .at-form-trampa{position:absolute!important;left:-9999px;width:1px;height:1px;overflow:hidden}
+    .at-form-aviso{margin:0;min-height:1em;font-size:14px;color:#e58f7b}
+    .at-form-aviso a{color:var(--at-gold)}
+    .at-form .at-btn{justify-self:start;border:0;cursor:pointer;font:inherit;font-weight:600}
+    .at-form .at-btn[disabled]{opacity:.6;cursor:wait}
+    .at-form-ok{padding:10px 4px}
+    .at-form-ok-titulo{font-family:var(--at-serif);font-weight:400;font-size:clamp(30px,3.4vw,44px);color:var(--at-cream);margin:16px 0 14px}
+    .at-form-ok-titulo em{color:var(--at-gold2);font-weight:300}
+    .at-form-ok strong{color:var(--at-cream);font-weight:500}
+    @media (max-width:640px){.at-form-fila{grid-template-columns:1fr}}
   </style>
+  <script>
+  (function(){
+    var f=document.getElementById('at-form');if(!f)return;
+    var aviso=f.querySelector('.at-form-aviso'),btn=f.querySelector('button[type=submit]'),ok=f.parentNode.querySelector('.at-form-ok');
+    f.addEventListener('submit',function(e){
+      e.preventDefault();aviso.textContent='';
+      var d={};['nombre','email','telefono','negocio','servicio','mensaje','trampa'].forEach(function(k){d[k]=f.elements[k].value});
+      d.privacidad=f.elements.privacidad.checked;
+      if(!f.checkValidity()||!d.privacidad){aviso.textContent='Revisa los campos: nombre, correo, qué necesitas, mensaje y la casilla de privacidad.';return}
+      btn.disabled=true;btn.firstChild.nodeValue='Enviando… ';
+      fetch('/api/contacto',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)})
+        .then(function(r){return r.json().catch(function(){return{ok:false}})})
+        .then(function(r){
+          if(!r.ok)throw new Error(r.error||'');
+          ok.querySelector('[data-nombre]').textContent=r.nombre||d.nombre;
+          ok.querySelector('[data-servicio]').textContent=(r.servicio||'tu proyecto').toLowerCase();
+          f.hidden=true;ok.hidden=false;
+          if(window.clarity)window.clarity('event','formulario_enviado');
+        })
+        .catch(function(err){
+          aviso.innerHTML='';aviso.appendChild(document.createTextNode((err.message||'No se ha podido enviar.')+' '));
+          var a=document.createElement('a');a.href='mailto:contacto@atdesarrolloweb.es';a.textContent='Escríbeme por correo';aviso.appendChild(a);
+          btn.disabled=false;btn.firstChild.nodeValue='Enviar mensaje ';
+        });
+    });
+  })();
+  </script>
 </div>
   </div>
 </section>
@@ -463,5 +535,6 @@ var kadenceConfig = {"screenReader":{"expand":"Men\u00fa hijo","expandOf":"Men\u
 <script id="kadence-navigation-js" src="/wp-content/themes/kadence/assets/js/navigation.min.js?ver=1.5.2" async></script>
 <script id="jquery-core-js" src="/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"></script>
 <script id="jquery-migrate-js" src="/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"></script>
+<script src="/at-whatsapp.js" defer></script>
 </body>
 </html>
