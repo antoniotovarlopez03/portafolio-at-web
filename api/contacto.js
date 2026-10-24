@@ -6,7 +6,7 @@
 const DESTINO = 'contacto@atdesarrolloweb.es';
 const REMITENTE = 'AT · Desarrollo web <contacto@atdesarrolloweb.es>';
 const WEB = 'https://www.atdesarrolloweb.es';
-const WHATSAPP = ''; // número con prefijo, sin espacios ni +. Ej.: 34600111222
+const WHATSAPP = '34601048544';
 
 // Qué puede pedir el cliente y qué le contesto en la confirmación.
 const SERVICIOS = {

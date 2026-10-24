@@ -1,7 +1,7 @@
 // Botón flotante de WhatsApp con el mensaje ya escrito según la página.
 // El número va también en api/contacto.js (botón del correo de confirmación).
 (function () {
-  var NUMERO = ''; // con prefijo, sin espacios ni +. Ej.: 34600111222
+  var NUMERO = '34601048544';
   if (!NUMERO) return;
 
   var ruta = location.pathname;
