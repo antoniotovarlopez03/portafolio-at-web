@@ -341,6 +341,19 @@ a.proyecto:hover .flecha { background: var(--gold); color: #16120a; }
 }
 .wa-flotante:hover { transform: translateY(-3px); }
 
+/* Aviso de cookies: «Aceptar» y «Rechazar» al mismo nivel */
+.aviso-cookies {
+  position: fixed; left: 20px; bottom: 20px; z-index: 70; max-width: 440px;
+  background: var(--card2); border: 1px solid rgba(224, 177, 94, .35); border-radius: 18px;
+  padding: 20px 22px; box-shadow: 0 20px 50px rgba(0, 0, 0, .6); font-size: .9rem;
+}
+.aviso-cookies .aviso-titulo { font-family: var(--serif); font-size: 1.45rem; color: var(--txt); margin-bottom: 6px; }
+.aviso-cookies p { line-height: 1.5; }
+.aviso-cookies a { color: var(--gold2); text-decoration: underline; text-underline-offset: 3px; }
+.aviso-botones { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 16px; }
+.aviso-botones .boton { padding: 11px 16px; font-size: .92rem; cursor: pointer; border: 1px solid var(--line2); }
+.aviso-botones .boton-oro { border-color: var(--gold); }
+
 /* ---------- Adaptación a pantallas ---------- */
 @media (max-width: 1020px) {
   .hero .bento, .caso .bento, .caso:nth-of-type(even) .bento, .extra .bento, .cierre, .contacto .bento { grid-template-columns: 1fr; }
@@ -381,6 +394,7 @@ a.proyecto:hover .flecha { background: var(--gold); color: #16120a; }
   .muestras { grid-template-columns: 1fr 1fr; gap: 12px; padding: 18px; }
   .pie .contenedor { grid-template-columns: 1fr; }
   .wa-flotante { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+  .aviso-cookies { left: 12px; right: 12px; bottom: 12px; max-width: none; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
