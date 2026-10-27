@@ -140,7 +140,7 @@ function correoCliente(d) {
   const servicio = SERVICIOS[d.servicio];
   const nombre = escapar(d.nombre.split(' ')[0]);
   const enlaceWa = WHATSAPP
-    ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hola, Antonio. Soy ${d.nombre}, te acabo de escribir desde la web por: ${servicio.nombre.toLowerCase()}.`)}`
+    ? `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`Hola. Soy ${d.nombre}, te acabo de escribir desde la web por: ${servicio.nombre.toLowerCase()}.`)}`
     : '';
   const filas =
     fila('Lo que pides', escapar(servicio.nombre)) +
