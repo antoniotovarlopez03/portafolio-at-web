@@ -205,6 +205,25 @@ a.proyecto:hover .foto img { transform: scale(1.03); }
 .proyecto .flecha { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line2); display: grid; place-items: center; color: var(--gold); transition: background .25s, color .25s; }
 a.proyecto:hover .flecha { background: var(--gold); color: #16120a; }
 
+/* ---------- Reseñas y visibilidad (portada) ---------- */
+.resenas-rejilla { grid-template-columns: 1.2fr .8fr; }
+.resenas-texto { display: flex; flex-direction: column; justify-content: space-between; gap: 30px; background: radial-gradient(ellipse 70% 80% at 0% 100%, rgba(224, 177, 94, .12), transparent 70%), var(--card); }
+.resenas-pasos { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 26px 28px; }
+.resenas-pasos .n { font-family: var(--serif); font-size: 3rem; line-height: .8; color: transparent; -webkit-text-stroke: 1px rgba(224, 177, 94, .75); }
+.resenas-pasos h3 { font-family: var(--sans); font-weight: 600; font-size: 1.1rem; letter-spacing: -.01em; margin: 12px 0 6px; }
+.resenas-pasos p { font-size: .93rem; line-height: 1.55; }
+.resenas-visual { display: flex; flex-direction: column; gap: 18px; background: radial-gradient(ellipse 80% 70% at 50% 40%, rgba(46, 110, 82, .45), transparent 72%), var(--card); }
+.resenas-escena { position: relative; flex: 1; min-height: 340px; }
+.resenas-escena img { position: absolute; border-radius: 12px; box-shadow: 0 30px 60px rgba(0, 0, 0, .6); transition: transform .6s ease; }
+.resenas-escena .r-vertical { width: 56%; left: 4%; top: 2%; transform: rotate(-5deg); }
+.resenas-escena .r-horizontal { width: 70%; right: 0; bottom: 4%; transform: rotate(4deg); }
+a.resenas-visual:hover .r-vertical { transform: rotate(-3deg) translateY(-6px); }
+a.resenas-visual:hover .r-horizontal { transform: rotate(2deg) translateY(-6px); }
+.resenas-visual .meta { display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+.resenas-visual h3 { margin-top: 10px; }
+.resenas-visual .flecha { flex: none; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line2); display: grid; place-items: center; color: var(--gold); transition: background .25s, color .25s; }
+a.resenas-visual:hover .flecha { background: var(--gold); color: #16120a; }
+
 /* ---------- Servicios ---------- */
 .servicios-rejilla { grid-template-columns: repeat(3, 1fr); }
 .servicio { display: flex; flex-direction: column; gap: 14px; min-height: 230px; }
@@ -356,7 +375,7 @@ a.proyecto:hover .flecha { background: var(--gold); color: #16120a; }
 
 /* ---------- Adaptación a pantallas ---------- */
 @media (max-width: 1020px) {
-  .hero .bento, .caso .bento, .caso:nth-of-type(even) .bento, .extra .bento, .cierre, .contacto .bento { grid-template-columns: 1fr; }
+  .hero .bento, .caso .bento, .caso:nth-of-type(even) .bento, .extra .bento, .cierre, .contacto .bento, .resenas-rejilla { grid-template-columns: 1fr; }
   .hero-texto { grid-row: auto; }
   .caso:nth-of-type(even) .escaparate { order: 0; }
   .servicios-rejilla { grid-template-columns: 1fr 1fr; }
@@ -375,7 +394,8 @@ a.proyecto:hover .flecha { background: var(--gold); color: #16120a; }
   .proyectos-rejilla { grid-template-columns: 1fr; grid-auto-rows: auto; }
   .proyecto .foto { flex: none; aspect-ratio: 16 / 11; }
   .proyecto, .proyecto.ancho, .proyecto.estrecho { grid-column: auto; }
-  .servicios-rejilla, .pasos { grid-template-columns: 1fr; }
+  .servicios-rejilla, .pasos, .resenas-pasos { grid-template-columns: 1fr; }
+  .resenas-escena { min-height: 300px; }
   .servicio.destacado { grid-column: auto; }
   .servicio { min-height: 0; }
   .hero-datos { grid-template-columns: 1fr 1fr; gap: 12px; }
