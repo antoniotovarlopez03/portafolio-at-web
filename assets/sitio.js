@@ -45,6 +45,17 @@
     document.head.appendChild(tag);
     window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'granted' });
   }
+  // Google Tag Manager (assets/gtm.js) empieza con todo denegado; esto lo cambia
+  function concederGoogle() { if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'granted' }); }
+  function retirarGoogle() {
+    if (window.gtag) window.gtag('consent', 'update', { analytics_storage: 'denied' });
+    try {
+      document.cookie.split(';').forEach(function (c) {
+        var n = (c.split('=')[0] || '').trim();
+        if (n.indexOf('_ga') === 0) ['', '; domain=.' + location.hostname.replace(/^www./, '')].forEach(function (d) { document.cookie = n + '=; Max-Age=0; path=/' + d; });
+      });
+    } catch (e) { /* sin cookies */ }
+  }
   function retirarClarity() {
     if (!window.clarity) return;
     window.clarity('consentv2', { ad_Storage: 'denied', analytics_Storage: 'denied' });
@@ -57,7 +68,7 @@
     aviso.setAttribute('role', 'dialog');
     aviso.setAttribute('aria-label', 'Aviso de cookies');
     aviso.innerHTML = '<p class="aviso-titulo">¿Me ayudas a mejorar la web?</p>' +
-      '<p>Con tu permiso uso Microsoft Clarity para ver, de forma anónima, cómo se navega por la web (clics y desplazamiento). Si lo rechazas, la web funciona igual. <a href="/cookies/">Más información</a>.</p>' +
+      '<p>Con tu permiso uso Google Analytics y Microsoft Clarity para saber, de forma anónima, cuántas visitas recibe la web y cómo se navega por ella. Si lo rechazas, la web funciona igual. <a href="/cookies/">Más información</a>.</p>' +
       '<div class="aviso-botones"><button type="button" class="boton boton-borde" data-eleccion="rechazadas">Rechazar</button>' +
       '<button type="button" class="boton boton-oro" data-eleccion="aceptadas">Aceptar</button></div>';
     aviso.addEventListener('click', function (e) {
@@ -67,8 +78,8 @@
       var eleccion = b.getAttribute('data-eleccion');
       guardarEleccion(eleccion);
       aviso.remove();
-      if (eleccion === 'aceptadas') cargarClarity();
-      else if (antes === 'aceptadas') retirarClarity();
+      if (eleccion === 'aceptadas') { cargarClarity(); concederGoogle(); }
+      else if (antes === 'aceptadas') { retirarClarity(); retirarGoogle(); }
     });
     document.body.appendChild(aviso);
   }
