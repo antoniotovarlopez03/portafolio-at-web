@@ -421,3 +421,38 @@ a.resenas-visual:hover .flecha { background: var(--gold); color: #16120a; }
   .cinta-pista, .pill i { animation: none; }
   .rev { opacity: 1; transform: none; transition: none; }
 }
+
+/* ---------- Apps propias (portada) ---------- */
+.apps-rejilla { grid-template-columns: 1fr 1fr; }
+.app { padding: 0; display: flex; flex-direction: column; }
+.app-vista {
+  display: block; padding: 30px 30px 0; border-bottom: 1px solid var(--line);
+  background: radial-gradient(ellipse 75% 75% at 35% 45%, var(--brillo, rgba(224, 177, 94, .2)), transparent 72%), var(--card2);
+}
+.app-vista .escena { margin-bottom: 48px; transition: transform .5s ease; }
+.app-vista:hover .escena { transform: translateY(-4px); }
+.app-vista .navegador { width: 84%; }
+.app-vista .movil { right: 3%; bottom: -12%; width: 25%; }
+.app-cuerpo { display: flex; flex-direction: column; gap: 16px; padding: clamp(22px, 3vw, 32px); flex: 1; }
+.app-cuerpo .num { font-family: var(--mono); font-size: .75rem; color: var(--mute); }
+.app-cuerpo .num b { color: var(--gold); font-weight: 500; }
+.app-cuerpo h3 { margin: 6px 0 4px; }
+.app-cuerpo .tipo { font-size: .9rem; color: var(--mute); }
+.app-cuerpo > p { font-size: .98rem; line-height: 1.55; }
+.app-cuerpo .botones { margin-top: auto; padding-top: 6px; }
+a.card.dato:hover .grande { color: var(--gold2); }
+@media (max-width: 1020px) {
+  .apps-rejilla { grid-template-columns: 1fr; }
+}
+@media (max-width: 680px) {
+  .app-vista { padding: 18px 18px 0; }
+  .app-vista .escena { margin-bottom: 40px; }
+  .app-vista .navegador { width: 90%; }
+  .app-vista .movil { width: 30%; }
+  .app-cuerpo .botones .boton { flex: 1 1 auto; justify-content: center; }
+}
+
+/* Separador entre grupos de casos (proyectos) */
+.separador-casos { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; margin-top: clamp(40px, 6vw, 72px); margin-bottom: 8px; }
+.separador-casos p { font-size: .95rem; }
+.servicio p a { color: var(--gold2); text-decoration: underline; text-underline-offset: 3px; }
